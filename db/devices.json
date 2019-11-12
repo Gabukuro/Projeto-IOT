@@ -1,1 +1,10 @@
-[{"id":1,"name":"Luz da Sala"},{"id":2,"name":"Luz da Garagem"},{"id":3,"name":"TESTE"},{"id":4,"name":"Novo dispositivo"},{"id":5,"name":"Novo dispositivo 2"}]
+[
+    {
+        "id": 1,
+        "name": "Luz da Sala"
+    },
+    {
+        "id": 2,
+        "name": "Luz da Garagem"
+    }
+]

@@ -10,7 +10,7 @@
     <p class="card-text">
         
     <% tempData.measurements.slice(-1).forEach((item) => { %>
-        <li>Temperatura: <%= item.temperature %> graus</li>
+        <li>Temperatura: <%= parseInt(item.temperature) %> graus</li>
         <li>Umidade <%= item.umidity %>%</li>
     <% }) %>
         
