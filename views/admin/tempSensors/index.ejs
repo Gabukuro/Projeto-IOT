@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('../../imports'); -%>
+  </head>
+  <body>
+    <%- include('../../navbar'); -%>
+    <div class="container">
+        
+        <h3>Administração de sensores de temperatura</h3>
+        <table class="table table-striped">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tempData.forEach((tempData) => { %>
+                    <tr>
+                        <td><%= tempData.id %></td>
+                        <td><%= tempData.name %></td>
+                        <td>INSERIR AÇÃO PARA SENSOR</td>
+                    </tr>
+                <% }) %>
+            </tbody>
+
+        </table>
+
+    </div>
+  </body>
+</html>
