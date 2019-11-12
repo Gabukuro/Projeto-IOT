@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('../../imports'); -%>
+  </head>
+  <body>
+    <%- include('../../navbar'); -%>
+    <div class="container">
+        
+        <h3><%= title %></h3>
+
+        <h5>Histórico de medidas</h5>
+
+        <ul class="list-group">
+
+            <% tempSensor.measurements.forEach((item) => { %>
+
+                <li class="list-group-item">
+                
+                  Data: <%= item.date %>
+                  <br> 
+                  Temperatura: <%= item.temperature %> graus
+                  <br> 
+                  Umidade: <%= item.umidity %>%
+                
+                </li>
+
+            <% }) %>
+
+        </ul>
+
+    </div>
+  </body>
+</html>

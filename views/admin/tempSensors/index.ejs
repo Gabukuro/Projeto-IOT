@@ -10,6 +10,13 @@
     <div class="container">
         
         <h3>Administração de sensores de temperatura</h3>
+
+        <a
+        class="btn btn-primary"
+        href="tempSensors/create"
+        >
+            Novo Sensor
+        </a>
         <table class="table table-striped">
 
             <thead class="thead-dark">
@@ -24,7 +31,14 @@
                     <tr>
                         <td><%= tempData.id %></td>
                         <td><%= tempData.name %></td>
-                        <td>INSERIR AÇÃO PARA SENSOR</td>
+                        <td>
+                            <a
+                            class="btn btn-primary"
+                            href="tempSensors/tempInfo/<%= tempData.id %>"
+                            >
+                                VISUALIZAR
+                            </a>
+                        </td>
                     </tr>
                 <% }) %>
             </tbody>
