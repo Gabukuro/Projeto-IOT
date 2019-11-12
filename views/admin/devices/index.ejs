@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('../../imports'); -%>
+  </head>
+  <body>
+    <%- include('../../navbar'); -%>
+    <div class="container">
+        
+        <h3>Administração de dispositivos</h3>
+
+        <a
+        class="btn btn-primary"
+        href="devices/create"
+        >
+            Novo Dispositivo
+        </a>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% devices.forEach((device) => { %>
+                    <tr>
+                        <td><%= device.id %></td>
+                        <td><%= device.name %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+
+  </body>
+</html>

@@ -19,6 +19,13 @@
             <% }) %>
 
         </div>
+
+        <div class="col-6">
+
+            <% devices.forEach((device) => { %>
+              <%- include('deviceCard', {device}); -%>
+            <% }) %>
+        </div>
         
       </div>
     </div>

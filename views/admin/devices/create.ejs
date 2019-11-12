@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('../../imports'); -%>
+  </head>
+  <body>
+    <%- include('../../navbar'); -%>
+    <div class="container">
+        
+        <h3>Novo dispositivo</h3>
+    
+        <form action="create" method="POST">
+            
+            <div class="form-group" >
+                <label for="title">Nome do dispositivo</label>
+                <input type="text" name="name" class="form-control" id="title" placeholder="Informe o nome do dispositivo">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Salvar</button>
+
+        </form>
+    </div>
+  </body>
+</html>
