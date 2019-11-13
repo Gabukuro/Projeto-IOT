@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin/tempSensors', tempSensorsRouterAdmin);
 app.use('/admin/devices', devicesRouterAdmin);
-app.use('/actuator', actuatorsRouter);
+app.use('/actuators', actuatorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
