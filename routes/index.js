@@ -20,14 +20,15 @@ router.get('/:id', (req, res, next) => {
   let tempData = tempSensorsService.getTempData();
   let actuators = devicesService.getActuators();
   let actuator = actuators.filter((actuator) => actuator.id == id)[0]
-
+  let index = actuators.indexOf(actuator);
+  
   if(actuator.status < 1) {
     actuator.status = 1;
   } else {
     actuator.status = 0;
   }
 
-  actuators.splice(actuator.id, 1, actuator);
+  actuators.splice(index, 1, actuator);
   devicesService.saveFileActuators(actuators);
   
 
