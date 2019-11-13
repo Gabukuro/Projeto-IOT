@@ -13,21 +13,26 @@
 
         <h5>Histórico de medidas</h5>
 
-        <ul class="list-group">
+        <table class="table">
 
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Temperatura</th>
+              <th>Umidade</th>
+            </tr>
+          </thead>
+          <tbody>
             <% tempSensor.measurements.forEach((item) => { %>
+              <tr>
+                <td><%= item.date %></td>
+                <td><%= parseInt(item.temperature) %> graus</td>
+                <td><%= item.humidity %>%</td>
+              </tr>
+          <% }) %>
+          </tbody>
+        </table>
 
-                <li class="list-group-item">
-                
-                  Data: <%= item.date %>
-                  <br> 
-                  Temperatura: <%= item.temperature %> graus
-                  <br> 
-                  Umidade: <%= item.umidity %>%
-                
-                </li>
-
-            <% }) %>
 
         </ul>
 

@@ -3,9 +3,9 @@ const router = express.Router();
 const devicesService = require('../../services/devicesService');
 
 router.get('/', (req, res, next) => {
-    let devices = devicesService.getDevices();
+    let actuators = devicesService.getActuators();
     let data = {
-        devices: devices
+        actuators: actuators
     };
     res.render('admin/devices', data);
 });
@@ -17,14 +17,15 @@ router.get('/create', (req, res, next) => {
 });
 
 router.post('/create', (req, res, next) => {
-    let devices = devicesService.getDevices();
+    let actuators = devicesService.getActuators();
     
     let newDevice = {};
-    newDevice.id = devices.length + 1;
+    newDevice.id = actuators.length + 1;
     newDevice.name = req.body.name;
+    newDevice.status = 0;
 
-    devicesService.saveDevices(newDevice);
-    res.redirect('admin/devices');
+    devicesService.saveActuator(newDevice);
+    res.redirect('/devices');
 });
 
 module.exports = router;

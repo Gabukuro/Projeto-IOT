@@ -1,7 +1,7 @@
 <div class="card shadow mx-auto my-3" style="width: 18rem;">
         <div class="card-body">
         <h5 class="card-title">
-        <%= device.name %>
+        <%= actuator.name %>
         </h5>
         <h6 class="card-subtitle mb-2 text-muted">
         Card subtitle
@@ -10,6 +10,10 @@
         <p class="card-text">
             
         Inserir opção de ligar e desligar
+        <a
+        class="btn btn-primary"
+        href="/<%= actuator.id %>"
+        >Ligar <%= actuator.id %></a>
             
         </p>
     

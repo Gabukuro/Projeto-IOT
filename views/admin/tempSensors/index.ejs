@@ -9,14 +9,22 @@
     <%- include('../../navbar'); -%>
     <div class="container">
         
-        <h3>Administração de sensores de temperatura</h3>
+        <div class="row">
+            
+            <h3 class="col-9">Administração de sensores de temperatura</h3>
+            
+            <div class="col-3">
+                    
+                <a 
+                class="btn btn-primary float-right"
+                href="tempSensors/create"
+                >
+                    Novo Sensor
+                </a>
 
-        <a
-        class="btn btn-primary"
-        href="tempSensors/create"
-        >
-            Novo Sensor
-        </a>
+            </div>
+            
+        </div>
         <table class="table table-striped">
 
             <thead class="thead-dark">

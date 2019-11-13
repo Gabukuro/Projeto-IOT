@@ -1,31 +1,68 @@
-const fs = require('fs');
+var fs = require('fs');
 
-const devicesFilePath = 'db/devices.json';
+var temperatureSensorsFilePath = 'db/tempSensors.json';
+var actuatorsFilePath = 'db/actuators.json';
 
-const loadFileDevices = function() {
-    let fileData = fs.readFileSync(devicesFilePath, 'utf8');
-    let devices = JSON.parse(fileData);
+var loadFileTemperatureSensors = function() {
+  var fileData = fs.readFileSync(temperatureSensorsFilePath, 'utf8');
+  var sensors = JSON.parse(fileData);
 
-    return devices;
+  return sensors;
 }
 
-const saveFileDevices = function(devices) {
-    let data = JSON.stringify(devices);
-    fs.writeFileSync(devicesFilePath, data, 'utf8');
+var loadFileActuators = function() {
+  var fileData = fs.readFileSync(actuatorsFilePath, 'utf8');
+  var actuators = JSON.parse(fileData);
+
+  return actuators;
 }
 
-const getDevices = function() {
-    let tempData = loadFileDevices();
-    return tempData;
+var saveFileActuators = function(actuators) {
+  var data = JSON.stringify(actuators);
+  fs.writeFileSync(actuatorsFilePath, data, 'utf8');
 }
 
-const saveDevices = function(newDevice) {
-    let devices = loadFileDevices();
-    devices.push(newDevice);
-    saveFileDevices(devices);
+var saveFileTemperatureSensors = function(sensors) {
+  var data = JSON.stringify(sensors);
+  fs.writeFileSync(temperatureSensorsFilePath, data, 'utf8');
+}
+
+const saveActuator = function(newActuator) {
+    let actuators = loadFileActuators();
+    actuators.push(newActuator);
+    saveFileActuators(actuators);
+}
+
+var getSensors = function() {
+  var sensors = loadFileTemperatureSensors();
+  return sensors;
+}
+
+var getActuators = function() {
+  var actuators = loadFileActuators();
+  return actuators;
+}
+
+var addMeasurement = function(sensorId, temperature, humidity) {
+  var sensors = loadFileTemperatureSensors();
+
+  var selectedSensor = sensors.find((sensor) => sensor.id == sensorId);
+
+  var measurementData = {
+    "date": new Date().toLocaleString(),
+    "temperature": temperature,
+    "humidity": humidity,
+  };
+
+  selectedSensor.measurements.push(measurementData);
+
+  saveFileTemperatureSensors(sensors);
 }
 
 module.exports = {
-    getDevices,
-    saveDevices
+  getSensors: getSensors,
+  getActuators: getActuators,
+  addMeasurement: addMeasurement,
+  saveFileActuators: saveFileActuators,
+  saveActuator: saveActuator
 }

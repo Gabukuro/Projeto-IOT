@@ -9,14 +9,22 @@
     <%- include('../../navbar'); -%>
     <div class="container">
         
-        <h3>Administração de dispositivos</h3>
+        <div class="row">
+            
+            <h3 class="col-9">Administração de dispositivos</h3>
+            
+            <div class="col-3">
 
-        <a
-        class="btn btn-primary"
-        href="devices/create"
-        >
-            Novo Dispositivo
-        </a>
+                <a
+                class="btn btn-primary float-right"
+                href="devices/create"
+                >
+                    Novo Dispositivo
+                </a>
+                
+            </div>
+
+        </div>
 
         <table class="table">
             <thead class="thead-dark">
@@ -26,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% devices.forEach((device) => { %>
+                <% actuators.forEach((device) => { %>
                     <tr>
                         <td><%= device.id %></td>
                         <td><%= device.name %></td>
