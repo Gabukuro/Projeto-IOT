@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var tempSensorsRouterAdmin = require('./routes/admin/tempSensors');
 var devicesRouterAdmin = require('./routes/admin/devices');
 var actuatorsRouter = require('./routes/actuators');
+var sensorsRouter = require('./routes/sensors');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/admin/tempSensors', tempSensorsRouterAdmin);
 app.use('/admin/devices', devicesRouterAdmin);
 app.use('/actuators', actuatorsRouter);
+app.use('/sensors', sensorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
