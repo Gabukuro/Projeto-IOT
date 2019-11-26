@@ -28,12 +28,21 @@ router.get('/tempInfo/:id', (req, res, next) => {
 
 router.post('/create', (req, res, next) => {
     let tempData = tempSensorsService.getTempData();
+    let data = new Date().toLocaleString('en-US', {hour12: true});
     
     let newTempSensor = {};
     newTempSensor.id = tempData.length + 1;
     newTempSensor.name = req.body.name;
+    newTempSensor.measurements = [
+        {
+            "date": data,
+            "temperature": 25,
+            "humidity": 80
+        }
+    ]
 
     tempSensorsService.saveTempSensors(newTempSensor);
+    res.redirect('/admin/tempSensors');
 });
 
 module.exports = router;
